@@ -1,11 +1,24 @@
-import React from "react";
+import Color from "./message.module.css";
 
-function ToDoList() {
+const Message = ({ message, children, className }) => {
   return (
-    <div>
-      <h1>ToDoList Component</h1>
-    </div>
+    <button className={className} onClick={() => alert(message)}>
+      {children}
+    </button>
   );
-}
+};
+
+const ToDoList = () => {
+  return (
+    <>
+      <Message className={Color.red} message={"play game with me"}>
+        Game
+      </Message>
+      <Message className={Color.blue} message={"End of the game"}>
+        End
+      </Message>
+    </>
+  );
+};
 
 export default ToDoList;
