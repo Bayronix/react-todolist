@@ -1,24 +1,12 @@
-import Color from "./message.module.css";
-
-const Message = ({ message, children, className }) => {
-  return (
-    <button className={className} onClick={() => alert(message)}>
-      {children}
-    </button>
-  );
+const CustomButton = ({ message, children }) => {
+  return <button onClick={() => alert(message)}>{children}</button>;
 };
 
-const ToDoList = () => {
+const App = () => {
   return (
     <>
-      <Message className={Color.red} message={"play game with me"}>
-        Game
-      </Message>
-      <Message className={Color.blue} message={"End of the game"}>
-        End
-      </Message>
+      <CustomButton message="Playing music!">Play some music</CustomButton>
+      <CustomButton message="Uploading your data!">Upload data</CustomButton>
     </>
   );
 };
-
-export default ToDoList;

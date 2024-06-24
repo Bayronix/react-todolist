@@ -1,14 +1,19 @@
-import { useState } from "react";
-import ToDoList from "./ToDoList/ToDoList";
+import { useState, useEffect } from "react";
+const App = () => {
+  const [clicks, setClicks] = useState(0);
 
-function App() {
-  const [count, setCount] = useState(0);
+  useEffect(() => {
+    console.log(`Clicks changed - ${clicks}`);
+  }, [clicks]);
 
   return (
-    <>
-      <ToDoList />
-    </>
+    <div>
+      <button onClick={() => setClicks(clicks + 1)}>
+        You clicked {clicks} times
+      </button>
+      <button onClick={() => setClicks(0)}>Reset</button>
+    </div>
   );
-}
+};
 
 export default App;
